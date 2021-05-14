@@ -13,6 +13,10 @@ defmodule Stack do
     GenServer.call(@server, :pop)
   end
 
+  def exit do
+    GenServer.stop(@server, :normal)
+  end
+
   def format_status(_reason, [_pdict, state]) do
     [
       data: [

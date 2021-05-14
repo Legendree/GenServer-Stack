@@ -19,4 +19,8 @@ defmodule Stack.Server do
   def handle_cast({:push, item}, stack) do
     {:noreply, Impl.push(stack, item)}
   end
+
+  def terminate(reason, _state) do
+    IO.puts("Exited with status code of #{inspect(reason)}")
+  end
 end
